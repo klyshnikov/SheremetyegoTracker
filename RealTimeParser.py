@@ -6,10 +6,12 @@ from datetime import timedelta
 
 class RealTimeParser:
     def get_string_flight_info(self, flight: FlightRadar24.Flight) -> str:
-        return f"{flight.callsign} {datetime.datetime.now()} {flight.latitude:.6f} {flight.longitude:.6f} {flight.altitude} {flight.ground_speed}"
+        time_now = datetime.datetime.now().strftime("%H:%M:%S")
+        return f"{flight.callsign} {datetime.datetime.now().date()} {time_now} {flight.latitude:.6f} {flight.longitude:.6f} {flight.altitude} {flight.ground_speed}"
 
     def get_string_callsign_info(self, flight: FlightRadar24.Flight) -> str:
-        return f"{flight.callsign} {flight.aircraft_code} {datetime.datetime.now()}"
+        time_now = datetime.datetime.now().strftime("%H:%M:%S")
+        return f"{flight.callsign} {flight.aircraft_code} {datetime.datetime.now().date()} {time_now}"
 
     def logSheremetyegoFlights(self, hours: int, minutes: int, seconds: int):
         sheremetyevo_cords = (55.973233, 37.409741)
