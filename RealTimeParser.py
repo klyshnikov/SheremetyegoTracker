@@ -13,14 +13,14 @@ class RealTimeParser:
         time_now = datetime.datetime.now().strftime("%H:%M:%S")
         return f"{flight.callsign} {flight.aircraft_code} {datetime.datetime.now().date()} {time_now}"
 
-    def logSheremetyegoFlights(self, hours: int, minutes: int, seconds: int):
+    def logSheremetyegoFlights(self, seconds: int):
         sheremetyevo_cords = (55.973233, 37.409741)
         update_frequency = 5
         save_file = "sheremetyevo_history"
         callsigns_file = "callsign_info"
         fr_api = FlightRadar24API()
         all_callsigns: dict = {}
-        time_to_stop = datetime.datetime.now() + timedelta(hours=float(hours), minutes=float(minutes), seconds=float(seconds))
+        time_to_stop = datetime.datetime.now() + timedelta(seconds=float(seconds))
 
         with open(save_file, "a") as s_file:
             with open(callsigns_file, "a") as c_file:

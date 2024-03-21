@@ -7,4 +7,4 @@ parser.logSheremetyegoFlights принимает 3 аргумента
 третий: кол-во секунд парсинга
 '''
 parser = RealTimeParser()
-parser.logSheremetyegoFlights(0, 0, 20)
+parser.logSheremetyegoFlights(60*60*24)
